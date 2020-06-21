@@ -74,7 +74,7 @@ public class Main
   {
     Scanner keyboard = new Scanner (System.in);
     
-    int currentDay = 20;
+    int currentDay = 22;
     int currentMonth = 6;
     int currentYear = 2020;
 
