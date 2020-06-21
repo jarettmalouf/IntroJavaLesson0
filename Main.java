@@ -64,7 +64,7 @@ public class Main
     int monthDiff = currentMonth - birthMonth;
     int yearDiff = currentYear - birthYear;
     
-    int[] ageDiff = {dayDiff, monthDiff, yearDiff};
+    int[] ageDiff = {yearDiff, monthDiff, dayDiff};
     
     return ageDiff;
   }
@@ -153,18 +153,18 @@ public class Main
 
         print("You are " + (older ? "older" : "younger") + " than " + theirName + " by ");
         
-        if (ageDiff[2] > 0) 
+        if (ageDiff[0] > 0) 
 	{
-            print(ageDiff[2] + " year" + ((ageDiff[2]>1) ? "s" : "") + (useCommas ? ", " : " "));
+            print(ageDiff[0] + " year" + ((ageDiff[0] > 1) ? "s" : "") + (useCommas ? ", " : " "));
         }
         if (ageDiff[1] > 0) 
 	{
-            print(((ageDiff[2] > 0 && ageDiff[0] == 0) ? "and " : "") + ageDiff[1] + 
-		  " month" + ((ageDiff[1]>1) ? "s" : "") + (useCommas ? ", " : " "));
+            print(((ageDiff[0] > 0 && ageDiff[2] == 0) ? "and " : "") + ageDiff[1] + 
+		  " month" + ((ageDiff[1] > 1) ? "s" : "") + (useCommas ? ", " : " "));
         }
-        if (ageDiff[0] > 0) 
+        if (ageDiff[2] > 0) 
 	{
-            print(((ageDiff[2] > 0 || ageDiff[1] > 0) ? "and " : "") + ageDiff[0] + " day" + ((ageDiff[0]>1) ? "s" : ""));
+            print(((ageDiff[0] > 0 || ageDiff[1] > 0) ? "and " : "") + ageDiff[2] + " day" + ((ageDiff[2] > 1) ? "s" : ""));
         }
         
         print(".");
