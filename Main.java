@@ -46,8 +46,8 @@ public class Main
 
     if (birthDay > currentDay)
     {
-	    currentMonth--;
-	    currentDay += monthLength[birthMonth - 1];
+	currentMonth--;
+	currentDay += monthLength[birthMonth - 1];
         if (birthYear % 4 == 0 && birthMonth == 2)
     	{
     	   currentDay++;
@@ -56,8 +56,8 @@ public class Main
 
     if (birthMonth > currentMonth)
     {
-	    currentYear--;
-	    currentMonth += 12;
+	currentYear--;
+	currentMonth += 12;
     }
 
     int dayDiff = currentDay - birthDay;
@@ -81,11 +81,11 @@ public class Main
     String yourMonth, theirName, theirMonth;
 
     while (yourMonthInt == 0)
-      {
+    {
 	print ("What month were you born in? ");
 	yourMonth = keyboard.next ();
 	yourMonthInt = convertMonthToInt (yourMonth);
-      }
+    }
 
     print ("What day were you born on? ");
     yourDay = keyboard.nextInt ();
@@ -93,8 +93,7 @@ public class Main
     print ("What year were you born in? ");
     yourYear = keyboard.nextInt ();
 
-    print
-      ("What is the name of the person with whom you'd like to compare ages? ");
+    print ("What is the name of the person with whom you'd like to compare ages? ");
     theirName = keyboard.next ();
 
     while (theirMonthInt == 0)
@@ -116,48 +115,59 @@ public class Main
     boolean older = false;
     boolean exactSameAge = false;
     
-    if (yourAge[2] != theirAge[2]) {
+    if (yourAge[2] != theirAge[2]) 
+    {
         older = (yourAge[2] > theirAge[2]);
     }
-    else if (yourAge[1] != theirAge[1]) {
+    else if (yourAge[1] != theirAge[1]) 
+    {
         older = (yourAge[1] > theirAge[1]);
     }
-    else if (yourAge[0] != theirAge[0]) {
+    else if (yourAge[0] != theirAge[0]) 
+    {
         older = (yourAge[0] > theirAge[0]);
     }
-    else {
+    else 
+    {
         exactSameAge = true;
     }
     
     int[] ageDiff = new int[3];
     
-    if (older) {
+    if (older) 
+    {
         ageDiff = calculateAge(yourDay, yourMonthInt, yourYear, theirDay, theirMonthInt, theirYear);
     }
-    else {
+    else 
+    {
         ageDiff = calculateAge(theirDay, theirMonthInt, theirYear, yourDay, yourMonthInt, yourYear);
     }
     
-    if (exactSameAge) {
+    if (exactSameAge) 
+    {
         print("You and " + theirName + " are the exact same age!");
     }
-    else {
+    else 
+    {
         boolean useCommas = ageDiff[0] > 0 && ageDiff[1] > 0 && ageDiff[2] > 0;
 
         print("You are " + (older ? "older" : "younger") + " than " + theirName + " by ");
         
-        if (ageDiff[2] > 0) {
+        if (ageDiff[2] > 0) 
+	{
             print(ageDiff[2] + " year" + ((ageDiff[2]>1) ? "s" : "") + (useCommas ? ", " : " "));
         }
-        if (ageDiff[1] > 0) {
-            print(((ageDiff[2] > 0 && ageDiff[0] == 0) ? "and " : "") + ageDiff[1] + " month" + ((ageDiff[1]>1) ? "s" : "") + (useCommas ? ", " : " "));
+        if (ageDiff[1] > 0) 
+	{
+            print(((ageDiff[2] > 0 && ageDiff[0] == 0) ? "and " : "") + ageDiff[1] + 
+		  " month" + ((ageDiff[1]>1) ? "s" : "") + (useCommas ? ", " : " "));
         }
-        if (ageDiff[0] > 0) {
+        if (ageDiff[0] > 0) 
+	{
             print(((ageDiff[2] > 0 || ageDiff[1] > 0) ? "and " : "") + ageDiff[0] + " day" + ((ageDiff[0]>1) ? "s" : ""));
         }
         
         print(".");
     }
-
   }
 }
