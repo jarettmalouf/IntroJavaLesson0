@@ -1,13 +1,5 @@
-/******************************************************************************
-
-                            Online Java Compiler.
-                Code, Compile, Run and Debug java program online.
-Write your code in this editor and press "Run" button to execute it.
-
-*******************************************************************************/
 import java.util.*;
 import java.io.*; 
-import java.time.LocalDateTime;
 
 public class Main
 {
@@ -58,7 +50,7 @@ public class Main
 	    currentDay += monthLength[birthMonth - 1];
         if (birthYear % 4 == 0 && birthMonth == 2)
     	{
-    	   currentDay += 1;
+    	   currentDay++;
     	}
     }
 
@@ -74,17 +66,18 @@ public class Main
     
     int[] ageDiff = {dayDiff, monthDiff, yearDiff};
     
-    System.out.println(String.format("Age: %d years, %d, months, %d days", yearDiff, monthDiff, dayDiff));
-
     return ageDiff;
   }
   
   public static void main (String[]args)
   {
     Scanner keyboard = new Scanner (System.in);
+    
+    int currentDay = 20;
+    int currentMonth = 6;
+    int currentYear = 2020;
 
-    int yourDay, yourMonthInt = 0, yourYear, theirDay, theirMonthInt =
-      0, theirYear;
+    int yourDay, yourMonthInt = 0, yourYear, theirDay, theirMonthInt = 0, theirYear;
     String yourMonth, theirName, theirMonth;
 
     while (yourMonthInt == 0)
@@ -106,19 +99,19 @@ public class Main
 
     while (theirMonthInt == 0)
     {
-    	print (String.format ("What month was %s born in? ", theirName));
+    	print ("What month was " + theirName + " born in? ");
     	theirMonth = keyboard.next ();
     	theirMonthInt = convertMonthToInt (theirMonth);
     }
 
-    print (String.format ("What day was %s born on? ", theirName));
+    print ("What day was " + theirName + " born on? ");
     theirDay = keyboard.nextInt ();
 
-    print (String.format ("What year was %s born in? ", theirName));
+    print ("What year was " + theirName + " born in? ");
     theirYear = keyboard.nextInt ();
     
-    int[] yourAge = calculateAge(yourDay, yourMonthInt, yourYear, 20, 6, 2020);
-    int[] theirAge = calculateAge(theirDay, theirMonthInt, theirYear, 20, 6, 2020);
+    int[] yourAge = calculateAge(yourDay, yourMonthInt, yourYear, currentDay, currentMonth, currentYear);
+    int[] theirAge = calculateAge(theirDay, theirMonthInt, theirYear, currentDay, currentMonth, currentYear);
     
     boolean older = false;
     boolean exactSameAge = false;
