@@ -40,6 +40,7 @@ public class Main
 	    return 0;
       }
   }
+	
   static int[] calculateAge (int birthDay, int birthMonth, int birthYear, int currentDay, int currentMonth, int currentYear)
   {
     int[] monthLength = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
