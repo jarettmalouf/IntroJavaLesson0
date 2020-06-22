@@ -116,17 +116,17 @@ public class Main
     boolean older = false;
     boolean exactSameAge = false;
     
-    if (yourAge[2] != theirAge[2]) 
+    if (yourAge[0] != theirAge[0]) 
     {
-        older = (yourAge[2] > theirAge[2]);
+        older = (yourAge[0] > theirAge[0]);
     }
     else if (yourAge[1] != theirAge[1]) 
     {
         older = (yourAge[1] > theirAge[1]);
     }
-    else if (yourAge[0] != theirAge[0]) 
+    else if (yourAge[2] != theirAge[2]) 
     {
-        older = (yourAge[0] > theirAge[0]);
+        older = (yourAge[2] > theirAge[2]);
     }
     else 
     {
